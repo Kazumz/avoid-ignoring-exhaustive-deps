@@ -1,2 +1,7 @@
-# avoid-ignoring-exhaustive-deps
-A descriptive and demonstrative example of why ignoring exhaustive dep issues in a React solution is not a great idea.
+# React Exhaustive Deps
+
+# Appendix
+- https://bobbyhadz.com/blog/react-hooks-exhaustive-deps
+
+# Limitations
+- Please ensure FanDuel's assets as part of this repository are not reused or redistributed without explicit permission. (Exempt from the MIT licence applied here)

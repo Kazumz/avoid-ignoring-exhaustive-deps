@@ -1,0 +1,10 @@
+@import '../colours';
+
+.card {
+  border: 1px solid darken($primary-colour, 25%);
+  display:flex;
+  flex-direction: column;
+  padding: 1rem;
+  border-radius: 5px;
+  background-color: darken($background-color, 3%);
+}
