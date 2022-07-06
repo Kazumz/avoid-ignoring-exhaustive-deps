@@ -17,8 +17,8 @@ const NoDependency: React.FC = () => {
 
     return (
         <div>
-            <h1>Country: {address.country}</h1>
-            <h1>City: {address.city}</h1>
+            <p>Country: {address.country}</p>
+            <p>City: {address.city}</p>
         </div>
     );
 }

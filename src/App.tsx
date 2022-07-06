@@ -8,6 +8,7 @@ import MissingDependency from './examples/MissingDependency';
 import MemoDependency from './examples/MemoDependency';
 import NoDependency from './examples/NoDependency';
 import ComponentDidMount from './examples/exercise/ComponentDidMount';
+import ComponentDidMountSolution from './examples/exercise/ComponentDidMountSolution';
 
 /*
 Comment out any examples you do not want to run concurrently.
@@ -33,7 +34,7 @@ const App: React.FC = () => {
                     <ComponentDidMount />
                 </Card>
                 <Card title='ComponentDidMount useEffect Equivalent Solution'>
-                    <MissingDependency />
+                    <ComponentDidMountSolution />
                 </Card>
             </main>
         </div>
