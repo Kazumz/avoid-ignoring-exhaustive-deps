@@ -25,10 +25,19 @@ The way that React and its vision of dependencies was designed is that you can't
 Confused? Let's look at some examples. Here we have an example of a useEffect hook that takes an initial address, put's it in to local state, and then never fires again. It only wishes to do this on mount, just after the component is first rendered.
 - [Missing Dependency](https://github.com/Kazumz/avoid-ignoring-exhaustive-deps/blob/main/src/examples/MissingDependency.tsx)
 
-To achieve this, we've introduced an absolute howler. The glorious ESLint disable next line exhaustive deps ignore. Rather than ensure our dependency is stable, so that our useEffect never triggers, we've instead just ignored it completely. In the example we're looking at here, there is absolutely no reason for doing this.
+To achieve this, we've introduced something contencious. The glorious ESLint disable next line exhaustive deps ignore. Rather than ensure our dependency is stable, so that our useEffect never triggers, we've instead just ignored it completely. In the example we're looking at here, there is absolutely no reason for doing this. Static code analysis like ESLint exists for a reason, and the exhaustive deps rule is included in React by default as they consider it important to the health of your React app. In the words of Dan Abramov, "you should face your dependencies".
 
-So how do we resolve it? What are our options. Well, there are a few! We could:
+So how do we resolve the ESLint ignore? What are our options? Well, there are a few! We could:
 - Move the object in to the static scope, outside of the React component so that it isn't recreated each render.
+- Memoise the object, so that our useEffect doesn't fire. 
+- Move the object inside of the useEffect as it appears to be initial data anyway.
+
+In both of the latter two examples, you can see we've removed the need for the ESLint ignore. Nice and simple. However, bigger applications will have bigger problems, which is why it's important to raise awareness of this now so that things are built correctly from the get-go to minimise even considering this rule.
+
+Let's do an exercise together:
+- [Exercise](https://github.com/Kazumz/avoid-ignoring-exhaustive-deps/blob/main/src/examples/exercise/ComponentDidMount.tsx)
+
+One solution that's worked for this exercise is useRef. useRef is your class equivalent variable. It's a reference to a space in memory that can be mutated, it gets disposed when there's no longer a reference to it. It's also safe across multiple re-renders. If we truely have a dependency we wish to ignore, this is one common way of achieving that - just assign it to a useRef variable, exactly as you'd do in a class based component.
 
 # Appendix
 - https://bobbyhadz.com/blog/react-hooks-exhaustive-deps
