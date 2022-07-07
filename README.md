@@ -23,6 +23,12 @@ There are cases where you may want to do some work with something, but not becau
 The way that React and its vision of dependencies was designed is that you can't do some work on something without first considering whether that something has changed or not. 
 
 Confused? Let's look at some examples. Here we have an example of a useEffect hook that takes an initial address, put's it in to local state, and then never fires again. It only wishes to do this on mount, just after the component is first rendered.
+- [Missing Dependency](https://github.com/Kazumz/avoid-ignoring-exhaustive-deps/blob/main/src/examples/MissingDependency.tsx)
+
+To achieve this, we've introduced an absolute howler. The glorious ESLint disable next line exhaustive deps ignore. Rather than ensure our dependency is stable, so that our useEffect never triggers, we've instead just ignored it completely. In the example we're looking at here, there is absolutely no reason for doing this.
+
+So how do we resolve it? What are our options. Well, there are a few! We could:
+- Move the object in to the static scope, outside of the React component so that it isn't recreated each render.
 
 # Appendix
 - https://bobbyhadz.com/blog/react-hooks-exhaustive-deps
