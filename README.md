@@ -1,5 +1,5 @@
 # React Exhaustive Deps
-In early 2019, React released 16.8 which removed the stateless functional component which at the time was an alternative approach to writing class-based components without state, and replaced it with the functional component - no longer was the functional component considered stateless.
+In early 2019, React released 16.8 which removed the stateless functional component which at the time was an alternative approach to writing class-based components without state, and replaced it with the functional component along with introducing state storing functions for use within - no longer was the functional component considered stateless.
 
 With this, you were left with two approaches. Keep writing class based components or adopt React Hooks and the functional component. 
 
