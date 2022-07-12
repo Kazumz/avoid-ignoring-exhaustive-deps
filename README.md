@@ -1,3 +1,6 @@
+# Overview
+In this talk, I'll attempt to convince you to avoid using eslint ignores for the exhaustive deps rule. Personally, I'm against introducing any eslint rule ignores in any codebase but I fully appreciate we may have differing opinions here and so I'll attempt to tackle the ignores I find in codebases case-by-case so we can talk about them individually in some depth.
+
 # React Exhaustive Deps
 In early 2019, React released 16.8 which removed the stateless functional component which at the time was an alternative approach to writing class-based components without state, and replaced it with the functional component along with introducing state storing functions for use within - no longer was the functional component considered stateless.
 
