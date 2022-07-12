@@ -32,12 +32,20 @@ So how do we resolve the ESLint ignore? What are our options? Well, there are a 
 - Memoise the object, so that our useEffect doesn't fire. 
 - Move the object inside of the useEffect as it appears to be initial data anyway.
 
-In both of the latter two examples, you can see we've removed the need for the ESLint ignore. Nice and simple. However, bigger applications will have bigger problems, which is why it's important to raise awareness of this now so that things are built correctly from the get-go to minimise even considering this rule.
+In both latter two examples, you can see we've removed the need for the ESLint ignore. Nice and simple. However, bigger applications will have bigger problems, which is why it's important to raise awareness of this now so that things are built correctly from the get-go to minimise even considering this rule.
 
 Let's do an exercise together:
 - [Exercise](https://github.com/Kazumz/avoid-ignoring-exhaustive-deps/blob/main/src/examples/exercise/ComponentDidMount.tsx)
 
-One solution that's worked for this exercise is useRef. useRef is your class equivalent variable. It's a reference to a space in memory that can be mutated, it gets disposed when there's no longer a reference to it. It's also safe across multiple re-renders. If we truly have a dependency we wish to ignore, this is one common way of achieving that - just assign it to a useRef variable, exactly as you'd do in a class-based component.
+One solution that's worked for this exercise is useRef. useRef is your class equivalent variable. It's a reference to a space in memory that can be mutated, it gets disposed when there's no longer a reference to it. It's also safe across multiple re-renders. If we truly have a dependency we wish to ignore, this is one common way of achieving that - just assign it to a useRef variable, exactly as you'd do in a class-based component to use in multiple lifecycle functions or cache it.
+
+Another brief example would be a network request triggered by a useEffect. There are many people who would attempt to copy the lifecycle function 'componentDidMount' directly by creating a useEffect with an empty dependency array, even though there may be external dependencies used within. Therefore, the linting ignore is required. One to question here is: Wouldn't you want your useEffect to retrigger the network request should its external dependencies change?
+
+Now, what if you disagree with this rule and approach? What if you believe it's much better to just ignore the rule and take the simplest approach? The answer: you're not wrong. Simpler is always better. However, by not following the design of React you will surely open yourselves up to problems eventually whether you like it or not, especially if something fundamental has changed as part of a React upgrade. React will introduce changes based on their design, not how people interpret or bend it. 
+
+Let's talk about some alternatives:
+- If you believe you have a use case and for example want a complete imitation of componentDidMount with an empty array list regardless, create a specialised hook for it so you only ignore once in one place. Only have strict case-by-case examples. Do not introduce any more unless common/generic functionality to avoid propagation. Like we do for spreading props, introduce real justification comments in code.
+- Disable the rule so that the eslint ignores are not required.
 
 # Appendix
 - https://bobbyhadz.com/blog/react-hooks-exhaustive-deps
