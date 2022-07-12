@@ -14,7 +14,7 @@ Overwhelmingly, most projects moved to hooks and functional components and there
 With hooks though, came other challenges:
 - In some cases, when using multiple useEffects, you can end up writing what appears to be more syntax to achieve the same result.
 - Hooks if not maintained in some form of logical order can end up syntactically messy.
-- A move towards using React as more of a framework, rather than a library. Good or bad? Debatable. 
+- A move towards using React as more of a framework, rather than a library. Good or bad? Debatable. Suddenly everything looks like it can be implemented as a hook.
 
 Along with hooks came a new pattern, called dependencies. You can write a hook in a way that it will conditionally do a job for you based on these dependencies, rather than running all of the time or just once.
 
